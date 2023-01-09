@@ -9,20 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     // dagbok med lista av anteckningar
-    var journal = [JournalEntry]()
+   @StateObject var journal = Journal()
     
     init() {
-        journal.append(JournalEntry(content: "åt mat"))
-        journal.append(JournalEntry(content: "sov"))
-        journal.append(JournalEntry(content: "Programmerade"))
-        journal.append(JournalEntry(content: "badade"))
 
     }
     
     var body: some View {
-        List(journal) { entry in
+        //navigering
+        NavigationView {
+        
+        List(journal.entries) { entry in
             Text(entry.content)
-        }
+          }
+            
+        .navigationBarTitle("Journal") //rubriken i navbar
+             .navigationBarItems(trailing: NavigationLink(destination: ContentView())
+                                 { Image(systemName: "plus.circle")//bild från sf plus i hörnet
+                 
+             })
+
+       }
+     
     }
 }
 
