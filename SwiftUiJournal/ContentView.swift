@@ -21,7 +21,7 @@ struct ContentView: View {
         
         List(journal.entries) { entry in
             
-            NavigationLink(destination: JournalEntryView(journal: journal )){
+            NavigationLink(destination: JournalEntryView(journal: journal, entry: entry )){
                 RowView(entry: entry)
             }
           

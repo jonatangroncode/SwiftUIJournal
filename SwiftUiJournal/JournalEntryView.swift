@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct JournalEntryView: View {
-    var journal : Journal 
+    var journal : Journal
+    var entry : JournalEntry? = nil
     @State var content : String = ""
     
     
@@ -16,9 +17,19 @@ struct JournalEntryView: View {
         VStack{
         TextEditor(text: $content) // dollar för att få med hela state av content
         }
+        .onAppear() {
+            setContent()
+        }
         .navigationBarItems(trailing: Button("Save"){
             saveEntry()
         })
+    }
+    
+    //
+    private func setContent() {
+        if let entry = entry {
+            content = entry.content
+        }
     }
     
     private func saveEntry() {
