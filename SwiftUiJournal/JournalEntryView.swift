@@ -11,6 +11,7 @@ struct JournalEntryView: View {
     var journal : Journal
     var entry : JournalEntry? = nil
     @State var content : String = ""
+    @Environment(\.presentationMode) var presentationMode
     
     
     var body: some View {
@@ -22,6 +23,7 @@ struct JournalEntryView: View {
         }
         .navigationBarItems(trailing: Button("Save"){
             saveEntry()
+            presentationMode.wrappedValue.dismiss()// hoppar tillbaka till startsidan när knappen trycks
         })
     }
     

@@ -15,6 +15,7 @@ struct ContentView: View {
 
     }
     
+    // allt sånt som ligger i body har bara med utseende att göra
     var body: some View {
         //navigering
         NavigationView {
