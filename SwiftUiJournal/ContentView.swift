@@ -20,18 +20,45 @@ struct ContentView: View {
         NavigationView {
         
         List(journal.entries) { entry in
-            Text(entry.content)
+            
+            NavigationLink(destination: JournalEntryView(journal: journal )){
+                RowView(entry: entry)
+            }
+          
           }
             
         .navigationBarTitle("Journal") //rubriken i navbar
-             .navigationBarItems(trailing: NavigationLink(destination: ContentView())
-                                 { Image(systemName: "plus.circle")//bild från sf plus i hörnet
+             .navigationBarItems(trailing: NavigationLink(destination: JournalEntryView(journal: journal))
+                {
+                 Image(systemName: "plus.circle")//bild från sf plus i hörnet
                  
              })
 
        }
      
     }
+}
+
+struct RowView : View {
+    var entry : JournalEntry
+    
+    //formaterar date så att de ser ut som vi vill
+    var date : String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        
+        return dateFormatter.string(from: entry.date)
+    }
+    
+    var body: some View {
+        HStack{
+            Text("\(date)")
+            Spacer()
+            Text(entry.content.prefix(7) + "...")
+            
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

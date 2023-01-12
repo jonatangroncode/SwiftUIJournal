@@ -16,6 +16,7 @@
 		847459CA296B7275003BFF2A /* SwiftUiJournalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847459C9296B7275003BFF2A /* SwiftUiJournalUITestsLaunchTests.swift */; };
 		847459D7296B7688003BFF2A /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847459D6296B7687003BFF2A /* JournalEntry.swift */; };
 		847459D9296B7E85003BFF2A /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847459D8296B7E85003BFF2A /* Journal.swift */; };
+		847459DB296C9B4B003BFF2A /* JournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847459DA296C9B4A003BFF2A /* JournalEntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		847459C9296B7275003BFF2A /* SwiftUiJournalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiJournalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		847459D6296B7687003BFF2A /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		847459D8296B7E85003BFF2A /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		847459DA296C9B4A003BFF2A /* JournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				847459B2296B7274003BFF2A /* Preview Content */,
 				847459D6296B7687003BFF2A /* JournalEntry.swift */,
 				847459D8296B7E85003BFF2A /* Journal.swift */,
+				847459DA296C9B4A003BFF2A /* JournalEntryView.swift */,
 			);
 			path = SwiftUiJournal;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847459D7296B7688003BFF2A /* JournalEntry.swift in Sources */,
+				847459DB296C9B4B003BFF2A /* JournalEntryView.swift in Sources */,
 				847459AF296B726B003BFF2A /* ContentView.swift in Sources */,
 				847459AD296B726B003BFF2A /* SwiftUiJournalApp.swift in Sources */,
 				847459D9296B7E85003BFF2A /* Journal.swift in Sources */,
