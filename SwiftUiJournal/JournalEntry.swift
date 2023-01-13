@@ -9,7 +9,7 @@ import Foundation
 
 
 
-struct JournalEntry : Identifiable {
+struct JournalEntry : Identifiable, Equatable {
     let id = UUID()
     
     

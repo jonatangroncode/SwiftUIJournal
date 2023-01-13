@@ -10,13 +10,16 @@ import SwiftUI
 struct JournalEntryView: View {
     var journal : Journal
     var entry : JournalEntry? = nil
-    @State var content : String = ""
+    @State var content : String = "Idag.."
     @Environment(\.presentationMode) var presentationMode
     
     
     var body: some View {
         VStack{
         TextEditor(text: $content) // dollar för att få med hela state av content
+                .onTapGesture {
+                    clearText()
+                }
         }
         .onAppear() {
             setContent()
@@ -27,6 +30,13 @@ struct JournalEntryView: View {
         })
     }
     
+    
+    private func clearText(){
+        if entry == nil {
+        content = ""
+        }
+    }
+    
     //
     private func setContent() {
         if let entry = entry {
@@ -35,9 +45,17 @@ struct JournalEntryView: View {
     }
     
     private func saveEntry() {
-        let entry = JournalEntry(content: content)
-   
-        journal.entries.append(entry)
+        if let entry = entry {
+            //uppdatera en gammal anteckning
+            journal.update(entry: entry, with: content)
+            
+        } else {
+            // skapa en ny dagboksanteckning
+            let entry = JournalEntry(content: content)
+             journal.entries.append(entry)
+        }
+        
+ 
     }
     
 }

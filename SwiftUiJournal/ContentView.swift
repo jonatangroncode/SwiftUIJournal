@@ -20,14 +20,19 @@ struct ContentView: View {
         //navigering
         NavigationView {
         
-        List(journal.entries) { entry in
+            List() {
+                ForEach(journal.entries)   { entry in
             
             NavigationLink(destination: JournalEntryView(journal: journal, entry: entry )){
                 RowView(entry: entry)
             }
           
           }
-            
+                .onDelete() { IndexSet in
+                    delete(indexSet: IndexSet)
+                }
+        }
+    
         .navigationBarTitle("Journal") //rubriken i navbar
              .navigationBarItems(trailing: NavigationLink(destination: JournalEntryView(journal: journal))
                 {
@@ -38,7 +43,16 @@ struct ContentView: View {
        }
      
     }
+    
+    func delete(indexSet: IndexSet) {
+        journal.entries.remove(atOffsets: indexSet)
+        
+    }
+
 }
+
+
+
 
 struct RowView : View {
     var entry : JournalEntry
